@@ -1,0 +1,25 @@
+{
+  "name": "users.db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "mocha",
+    "testenv": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha **/*.test.js",
+    "testWatch": "nodemon --exec \"npm test\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.12.0"
+  },
+  "devDependencies": {
+    "expect": "^21.2.1",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1"
+  }
+}

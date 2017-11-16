@@ -16,13 +16,13 @@ describe('Reads user records', () => {
       .catch((e) => done(e));
   });
 
-  it('find all users named joe', (done) => {  
+  it('find all users named joe', (done) => {
     User.find({ name: 'Joe' })
       .then((users) => {
         expect(users[0]._id.toString()).toBe(joe._id.toString());
         done();
       })
-      .catch((e) => { done(e) });
+      .catch((e) => { done(e); });
   });
 
   it('find a user with a particular id', (done) => {
@@ -32,7 +32,7 @@ describe('Reads user records', () => {
         expect(user._id.toString()).toBe(joe._id.toString());
         done();
       })
-      .catch((e) => { done(e) });
+      .catch((e) => { done(e); });
   });
 
   it('can skip and limit the result set', (done) => {

@@ -10,6 +10,6 @@ describe('Create records', () => {
         expect(joe.isNew).toBe(false);
         done();
       })
-      .catch((e) => { done(e) });
+      .catch((e) => { done(e); });
   });
 });

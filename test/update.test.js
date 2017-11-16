@@ -19,18 +19,18 @@ describe('Updates user records', () => {
         expect(users[0].name).toBe('Alex');
         done();
       })
-      .catch((e) => { done(e) });
+      .catch((e) => { done(e); });
   }
-  
+
   it('instance type can set n save', (done) => {
-    joe.set('name','Alex');
+    joe.set('name', 'Alex');
     assertName(joe.save(), done);
   });
-  
+
   it('model instance can update', (done) => {
     assertName(joe.update({ name: 'Alex' }), done);
   });
-  
+
   it('model class can update', (done) => {
     assertName(User.update({ name: 'Joe' }, { name: 'Alex' }), done);
   });
@@ -38,17 +38,17 @@ describe('Updates user records', () => {
   it('model class can update one record', (done) => {
     assertName(User.findOneAndUpdate({ name: 'Joe' }, { name: 'Alex' }), done);
   });
-  
+
   it('A model class can find a findRecordByIdAndUpdate', (done) => {
     assertName(User.findByIdAndUpdate(joe._id, { name: 'Alex' }), done);
   });
-    
+
   it('A user can have their likes incremented by 1', (done) => {
     User.update({ name: 'Joe' }, { $inc: { likes: 1 }})
-    .then(() => User.findOne({ name: 'Joe' }))
-    .then((user) => {
-      expect(user.likes).toBe(1)
-      done();
-    }).catch((e) => done(e));
-  });  
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then((user) => {
+        expect(user.likes).toBe(1);
+        done();
+      }).catch((e) => done(e));
+  });
 });

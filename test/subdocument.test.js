@@ -4,7 +4,7 @@ const User = require('./../src/user');
 describe('Subdocuments', () => {
   it('can create a subdocument', (done) => {
     const joe = new User({
-      name: 'Joe', 
+      name: 'Joe',
       posts: [{ title: 'myPostTitle' }]
     });
 
@@ -28,7 +28,7 @@ describe('Subdocuments', () => {
         user.posts.push({ title: 'New Post' });
         return user.save();
       })
-      .then(() =>  User.findOne({ name: 'Joe' }))
+      .then(() => User.findOne({ name: 'Joe' }))
       .then((user) => {
         expect(user.posts[0].title).toBe('New Post');
         done();
@@ -46,10 +46,10 @@ describe('Subdocuments', () => {
       .then(() => User.findOne({ name: 'Joe' }))
       .then((user) => {
         const post = user.posts[0];
-        post.remove(); //mongoose syntactic sugar; only acts on local (must call save())
+        post.remove();
         return user.save();
       })
-      .then(() =>  User.findOne({ name: 'Joe' }))
+      .then(() => User.findOne({ name: 'Joe' }))
       .then((user) => {
         expect(user.posts.length).toBe(0);
         done();

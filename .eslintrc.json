@@ -1,5 +1,5 @@
 {
- "extends": "eslint:recommended",
+ "extends": "mongodb-js/node",
  "parserOptions": {
    "ecmaVersion": 6
  },
@@ -14,6 +14,12 @@
     {
       "vars": "local",
       "args": "none"
+    }
+  ],
+  "one-var": [
+    "error", 
+    { 
+      "initialized": "never" 
     }
   ]
  }
